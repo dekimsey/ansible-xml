@@ -84,7 +84,11 @@ author: Tim Bielawa, Magnus Hedemark
 '''
 
 
-from io import BytesIO
+try:
+    from io import BytesIO
+except ImportError:
+    # Horrific
+    import StringIO as BytesIO
 from lxml import etree
 try:
     import json
